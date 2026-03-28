@@ -15,30 +15,105 @@
   </head>
 
   <body>
-    <img src="assets/img/SkillSet.PNG" alt="logo" />
+    <div class="page-shell">
+      <header class="hero">
+        <div class="hero-copy">
+          <p class="eyebrow">Resume Storytelling With D3</p>
+          <h1>Turn a static skill list into a living knowledge map.</h1>
+          <p class="hero-text">
+            SkillSet translates a JSONResume skill section into an interactive
+            network that is easier to scan, demo, and discuss with hiring teams.
+          </p>
+          <div class="hero-actions">
+            <a
+              class="demo-link"
+              href="https://jac21.github.io/viz.html"
+              target="_blank"
+              rel="noopener noreferrer"
+              >View live example</a
+            >
+            <a
+              class="text-link"
+              href="https://jsonresume.org/"
+              target="_blank"
+              rel="noopener noreferrer"
+              >About JSONResume</a
+            >
+          </div>
+        </div>
 
-    <div class="visual content">
-      <p class="body-text">
-        If you'd like to see an example in action, click
-        <a
-          href="https://jac21.github.io/viz.html"
-          target="_blank"
-          rel="noopener noreferrer"
-          >here!</a
-        >
-      </p>
-      <!-- basic web form for json uploading and visualizing -->
-      <form id="json-form">
-        <p>
-          Submit your
-          <a href="https://jsonresume.org/" target="_blank">JSONResume</a> here
-          for skillset visualization:
-        </p>
-        <input type="file" id="json-input" required />
-        <button type="submit" id="json-input-button">Visualize</button>
-      </form>
+        <div class="hero-brand">
+          <div class="brand-card">
+            <img src="assets/img/SkillSet.PNG" alt="SkillSet logo" class="brand-logo" />
+            <div class="stat-grid">
+              <div class="stat-card">
+                <span class="stat-label">Input</span>
+                <strong>JSONResume</strong>
+              </div>
+              <div class="stat-card">
+                <span class="stat-label">Output</span>
+                <strong>Force Graph</strong>
+              </div>
+              <div class="stat-card">
+                <span class="stat-label">Use Case</span>
+                <strong>Live Demos</strong>
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
 
-      <p id="error-area"></p>
+      <main class="workspace">
+        <section class="panel controls-panel">
+          <div class="panel-heading">
+            <p class="eyebrow">Upload</p>
+            <h2>Generate your visualization</h2>
+          </div>
+
+          <p class="panel-copy">
+            Drop in a resume export with a populated <code>skills</code> array and
+            SkillSet will render the relationships between categories and keywords.
+          </p>
+
+          <form id="json-form" class="upload-form">
+            <label class="file-field" for="json-input">
+              <span class="file-label">Choose a resume file</span>
+              <input type="file" id="json-input" accept=".json,application/json" required />
+            </label>
+            <button type="submit" id="json-input-button">Visualize Skills</button>
+          </form>
+
+          <p id="error-area"></p>
+
+          <div class="tips-card">
+            <h3>Best for demos</h3>
+            <p>
+              Use a resume with a concise set of categories and high-signal keywords.
+              Click a node to spotlight it, then drag clusters to talk through depth.
+            </p>
+          </div>
+        </section>
+
+        <section class="panel viz-panel">
+          <div class="panel-heading panel-heading-inline">
+            <div>
+              <p class="eyebrow">Visualization</p>
+              <h2>Interactive skill map</h2>
+            </div>
+            <span class="viz-badge">D3 Force Layout</span>
+          </div>
+
+          <div id="visualization-root">
+            <div class="viz-empty-state">
+              <p class="viz-empty-title">Your graph will appear here.</p>
+              <p class="viz-empty-copy">
+                Upload a JSONResume file to generate a clean, presentation-ready network
+                view of your skills.
+              </p>
+            </div>
+          </div>
+        </section>
+      </main>
     </div>
 
     <a
